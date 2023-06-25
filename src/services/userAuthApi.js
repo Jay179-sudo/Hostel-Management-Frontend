@@ -216,14 +216,133 @@ export const userAuthApi = createApi({
             csv: actualData.csv
           }),
           headers: {
-            'authorization': `Bearer ${access_token}`,
+            // 'authorization': `Bearer ${access_token}`,
             'Content-type': 'application/json',
           }
 
         }
       }
     }),
+    markAbsent: builder.mutation({
+      query: ({ actualData, access_token }) => {
+        return {
+          url: 'createabsentrecord/',
+          method: 'POST',
+          body: JSON.stringify({
+            email: actualData.email
+          }),
+          headers: {
+            // 'authorization': `Bearer ${access_token}`,
+            'Content-type': 'application/json',
+          }
+
+        }
+      }
+    }),
+
+    // left to implement in auth.js
+    // view students present yesterday. Do it first in Postman
+    absentYesterday: builder.mutation({
+      query: ({ actualData, access_token }) => {
+        return {
+          url: 'createabsentrecord/',
+          method: 'POST',
+          body: JSON.stringify({
+            email: actualData.email
+          }),
+          headers: {
+            // 'authorization': `Bearer ${access_token}`,
+            'Content-type': 'application/json',
+          }
+
+        }
+      }
+    }),
+    absentviewtotal: builder.mutation({
+      query: ({ actualData, access_token }) => {
+        return {
+          url: 'AbsentDaysView/',
+          method: 'POST',
+          body: JSON.stringify({
+            start_date: actualData.start_date,
+            end_date: actualData.end_date
+          }),
+          headers: {
+            // 'authorization': `Bearer ${access_token}`,
+            'Content-type': 'application/json',
+          }
+
+        }
+      }
+    }),
+    absentviewspecific: builder.mutation({
+      query: ({ actualData, access_token }) => {
+        return {
+          url: 'AbsentDaysSpecificView/',
+          method: 'POST',
+          body: JSON.stringify({
+            email: actualData.email,
+            start_date: actualData.start_date,
+            end_date: actualData.end_date
+          }),
+          headers: {
+            // 'authorization': `Bearer ${access_token}`,
+            'Content-type': 'application/json',
+          }
+
+        }
+      }
+    }),
+    // yo ta replace garnu paryo get room from email sanga
+    getemailfromroom: builder.mutation({
+      query: ({ actualData, access_token }) => {
+        return {
+          url: 'getemailfromroom/',
+          method: 'POST',
+          body: JSON.stringify({
+            room_number: actualData.room_number,
+          }),
+          headers: {
+            // 'authorization': `Bearer ${access_token}`,
+            'Content-type': 'application/json',
+          }
+
+        }
+      }
+    }),
+
+    getroomdetails: builder.mutation({
+      query: ({ actualData, access_token }) => {
+        return {
+          url: 'getroomdetails/',
+          method: 'POST',
+          body: JSON.stringify({
+            room_number: actualData.room_number,
+          }),
+          headers: {
+            // 'authorization': `Bearer ${access_token}`,
+            'Content-type': 'application/json',
+          }
+
+        }
+      }
+    }),
+
+    getoccupiedrooms: builder.mutation({
+      query: ({ access_token }) => {
+        return {
+          url: 'occupiedRooms/',
+          method: 'GET',
+          headers: {
+            // 'authorization': `Bearer ${access_token}`,
+            'Content-type': 'application/json',
+          }
+
+        }
+      }
+    }),
+
   }),
 })
 
-export const { useRegisterSuperUserMutation, useLoginSuperUserMutation, useGetLoggedUserQuery, useChangeUserPasswordMutation, useSendPasswordResetEmailMutation, useResetPasswordMutation, useRegisterHostelAdminMutation, useRegisterStudentMutation, useLoginHostelAdminMutation, useLoginStudentMutation, useCreateLeaveRequestMutation, useUpdateHostelRoomMutation, useUploadcsvMutation, useRegisterHostelMutation } = userAuthApi
+export const { useAbsentYesterdayMutation, useAbsentviewtotalMutation, useAbsentviewspecificMutation, useGetemailfromroomMutation, useGetroomdetailsMutation, useGetoccupiedroomsMutation, useRegisterSuperUserMutation, useLoginSuperUserMutation, useGetLoggedUserQuery, useChangeUserPasswordMutation, useSendPasswordResetEmailMutation, useResetPasswordMutation, useRegisterHostelAdminMutation, useRegisterStudentMutation, useLoginHostelAdminMutation, useLoginStudentMutation, useCreateLeaveRequestMutation, useUpdateHostelRoomMutation, useUploadcsvMutation, useRegisterHostelMutation, useMarkAbsentMutation } = userAuthApi

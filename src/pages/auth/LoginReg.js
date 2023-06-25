@@ -38,9 +38,9 @@ const LoginReg = () => {
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
               <Tabs value={value} textColor='secondary' indicatorColor='secondary' onChange={handleChange}>
                 <Tab label='Login' sx={{ textTransform: 'none', fontWeight: 'bold' }}></Tab>
-                <Tab label='Registration' sx={{ textTransform: 'none', fontWeight: 'bold' }}></Tab>
-                <Tab label='Hostel Admin Registration' sx={{ textTransform: 'none', fontWeight: 'bold' }}></Tab>
-                <Tab label='Student Registration' sx={{ textTransform: 'none', fontWeight: 'bold' }}></Tab>
+                {/* <Tab label='Registration' sx={{ textTransform: 'none', fontWeight: 'bold' }}></Tab> */}
+                {/* <Tab label='Hostel Admin Registration' sx={{ textTransform: 'none', fontWeight: 'bold' }}></Tab> */}
+                {/* <Tab label='Student Registration' sx={{ textTransform: 'none', fontWeight: 'bold' }}></Tab> */}
               </Tabs>
             </Box>
             <TabPanel value={value} index={0}>
