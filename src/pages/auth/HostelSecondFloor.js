@@ -176,8 +176,8 @@ const HostelSecondFloor = () => {
             </button>
           </div>
         </div>
-
-        <div className="third-floor-main">{buttons}</div>
+        <h2 className="attendance-heading-h2">Second Floor</h2>
+        <div className="second-floor-main">{buttons}</div>
       </div>
     </>
   );

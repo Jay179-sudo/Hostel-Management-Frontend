@@ -16,15 +16,15 @@ FONT SIZE SYSTEM (px)
   background-color: black !important;
 }
 
-.unoccupied:hover {
-  /* cursor: ; */
-}
+/* .unoccupied:hover {
+   cursor: ; 
+} */
 .absent {
   background-color: red;
 }
 
-.present {
-}
+/* .present {
+} */
 
 .third-floor-body {
   background-color: #fafbfd;
@@ -122,6 +122,16 @@ FONT SIZE SYSTEM (px)
 }
 .attendance-nav-button-link:hover {
   background-color: #6c63ff;
+}
+
+.attendance-heading-h2 {
+  text-transform: uppercase;
+  /* font-weight: 500; */
+  text-align: center;
+}
+
+.absent, .absent:hover {
+  background-color: red;
 }
 [id="368"] {
   grid-row: 1/3;

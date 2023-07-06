@@ -192,8 +192,8 @@ const LandingPage = () => {
               </div>
             </section>
             <footer class="start-footer">
-              Copyright &copy; 2023 by Jay Prasad, Shebin Varghese. Part of
-              "Summer Project".
+              Copyright &copy; 2023 by Jay Prasad, Shebin Varghese, Guna Sagar.
+              Part of "Summer Project".
             </footer>
           </div>
         }

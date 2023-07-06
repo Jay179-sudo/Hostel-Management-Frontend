@@ -48,12 +48,22 @@ const PresentYesterday = () => {
   return (
     <>
       {
-        <div className="student-strength-cointainer">
-          <h2 className="strength-h2">Current Strength Hostel</h2>
-          <div className="yesterday-total">
-            <p>Total Strength: {total_occupied}</p>
+        <div className="strength-big-container">
+          <button
+            className="dashboard-back-button-third-floor"
+            onClick={(e) => {
+              navigate("/messmanagerdashboard");
+            }}
+          >
+            Dashboard
+          </button>
+          <div className="student-strength-cointainer">
+            <h2 className="strength-h2">Current Strength Hostel</h2>
+            <div className="yesterday-total">
+              <p className="yesterday-total-para">Total Strength: {total_occupied}</p>
 
-            <p>Students Absent Yesterday: {number}</p>
+              <p className="yesterday-total-para">Students Absent Yesterday: {number}</p>
+            </div>
           </div>
         </div>
       }

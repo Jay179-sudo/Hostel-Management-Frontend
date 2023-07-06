@@ -117,6 +117,8 @@ const DownloadCSV = () => {
         </Box>
       ) : (
         <div>
+          
+          <div className="absent-general-response-container">
           <button
             className="dashboard-back-button-third-floor"
             onClick={(e) => {
@@ -125,7 +127,11 @@ const DownloadCSV = () => {
           >
             Dashboard
           </button>
-          {server_data}
+          <div className="absent-general-div">
+          <h2 className="absent-general-response-h2">Absent Student General</h2>
+          <p className="absent-general-para">{server_data}</p>
+          </div></div>
+          
         </div>
       )}
     </>

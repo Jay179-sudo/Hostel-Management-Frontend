@@ -179,6 +179,15 @@ const AbsentViewSpecific = () => {
         </Box>
       ) : (
         <div>
+          {/* <button
+            className="dashboard-back-button-third-floor"
+            onClick={(e) => {
+              navigate("/hosteladmindashboard");
+            }}
+          >
+            Dashboard
+          </button> */}
+          <div className="absent-specific-response-container">
           <button
             className="dashboard-back-button-third-floor"
             onClick={(e) => {
@@ -187,7 +196,6 @@ const AbsentViewSpecific = () => {
           >
             Dashboard
           </button>
-          <div className="absent-specific-response-container">
             <h2 className="absent-specific-h2">Absent Specific Student</h2>
             <div className="absent-specific-response-main">
               <div className="absent-specific-response-head">

@@ -94,7 +94,7 @@ const UserLogin = () => {
             </div>
 
             <div class="forgot-password">
-              <NavLink to="/sendpasswordresetemail">Forgot Password</NavLink>
+              <NavLink to="/sendpasswordresetemail" className="forgot-password-login-form">Forgot Password</NavLink>
             </div>
             <div class="submit-button">
               <input

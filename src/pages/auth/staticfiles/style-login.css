@@ -132,3 +132,16 @@ h2 {
 .btn:hover {
   background-color: #483dff;
 }
+
+.forgot-password-login-form:link,
+.forgot-password-login-form:visited {
+  color: #868e96;
+  letter-spacing: 0.2px;
+  font-size: 16px;
+}
+
+.forgot-password-login-form:hover,
+.forgot-password-login-form:active {
+  color: #495057;
+  letter-spacing: 0.2px;
+}

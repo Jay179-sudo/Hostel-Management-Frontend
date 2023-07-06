@@ -189,7 +189,10 @@ FONT SIZE SYSTEM (px)
 
 .absent-general-h2 {
   font-size: 44px;
-  display: inline-block;
-  padding-left: 48px;
+  text-align: center;
+  display: block;
   margin: 48px 0;
+}
+.absent-general-head-grid-mess, .absent-general-grid-mess {
+  margin: 0 auto;
 }

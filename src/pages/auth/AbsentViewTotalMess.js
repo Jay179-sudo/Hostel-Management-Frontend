@@ -118,6 +118,8 @@ const AbsentViewTotalMess = () => {
         </Box>
       ) : (
         <div>
+          
+          <div className="absent-general-response-container">
           <header class="absent-specific-header">
             <div class="dashboard-button-absent-specific">
               <button
@@ -130,10 +132,9 @@ const AbsentViewTotalMess = () => {
               </button>
             </div>
           </header>
-          <div className="absent-general-response-container">
             <div className="absent-general-response-main">
               <h2 className="absent-general-h2">Absent Student General</h2>
-              <div className="absent-general-head-grid">
+              <div className="absent-general-head-grid-mess absent-general-head-grid">
                 <div className="absent-student-response-head">
                   <p>Email</p>
                 </div>
@@ -142,7 +143,7 @@ const AbsentViewTotalMess = () => {
                 </div>
               </div>
               {server_data.map((item) => (
-                <div key={uuidv4()} className="absent-general-grid">
+                <div key={uuidv4()} className="absent-general-grid absent-general-grid-mess">
                   <div className="absent-general-response-email">
                     {item.studentId__email}
                   </div>
