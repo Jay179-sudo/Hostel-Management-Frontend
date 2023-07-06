@@ -1,0 +1,137 @@
+/*
+SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+FONT SIZE SYSTEM (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.body-stud-dash {
+  /* background-color: #f1f3f5; */
+  font-family: "Roboto", sans-serif;
+  color: #343a40;
+  /* border-bottom: 8px solid #1864ab; 
+      border-top: 8px solid #087f5b; */
+}
+
+/* // CONTAINER // */
+
+.stud-dash-container {
+  width: 1100px;
+  margin: 0 auto;
+}
+
+.icon-stud-dash {
+  width: 40px;
+  display: inline-block;
+  height: 40px;
+  margin-bottom: 24px;
+}
+/* .icon-stud-dash-lock {
+    width: 33.33px;
+    height: 26.67px;
+  } */
+.title-stud-dash {
+  margin-bottom: 16px;
+  font-size: 24px;
+}
+.text-stud-dash {
+  font-size: 18px;
+  line-height: 1.7;
+}
+.box-stud-dash {
+  box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  width: 400px;
+  padding: 20px;
+  justify-content: center;
+  /* background-color: #f7f7f7; */
+  display: inline-block;
+}
+
+/* // MAIN PAGE // */
+
+.stud-dash-main {
+  display: grid;
+  margin-top: 80px;
+  grid-template-rows: repeat(2, 1fr);
+  align-content: center;
+  justify-content: center;
+}
+
+.stud-dash-menu {
+  justify-self: center;
+  align-self: start;
+  display: grid;
+  margin-top: 16px;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+}
+
+.btn-student-dash:link,
+.btn-student-dash:visited {
+  color: #5340b3;
+  fill: #5340b3;
+  border-radius: 12px;
+  transition: background-color 0.5s;
+}
+
+.btn-student-dash:hover,
+.btn-student-dash:active,
+.btn-admin-dash-pass:hover {
+  background-color: #5340b3;
+  border-radius: 12px;
+  color: #fff;
+  fill: #fff;
+}
+/* .btn-student-dash:link .icon-stud-dash {
+    fill: #f7f7f7;
+  } */
+
+/* // HEADER // */
+
+.stud-dash-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.welcome-student-dash {
+  margin-top: 30px;
+}
+.logout-btn-student-dash {
+  display: inline-block;
+  border: 1px solid transparent;
+  margin-top: 32px;
+  background-color: #6c63ff;
+  /* border: none; */
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 10px 40px;
+  text-transform: uppercase;
+  transition: background-color 0.3s;
+}
+
+.logout-btn-student-dash:hover {
+  background-color: #483dff;
+}
+.btn-admin-dash-pass {
+  color: #5340b3;
+  fill: #5340b3;
+  border-radius: 12px;
+  display: inline-block;
+  transition: background-color 0.5s;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+
+  background-color: #fff;
+  /* box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.1); */
+}

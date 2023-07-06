@@ -15,7 +15,7 @@ import { useAbsentviewspecificMutation } from "../../services/userAuthApi";
 import { v4 as uuidv4 } from "uuid";
 import "../auth/staticfiles/absent-specific-style.css";
 import general_image from "../auth/mediafiles/absent-specific-image.jpg";
-const AbsentViewSpecific = () => {
+const AbsentViewSpecificMess = () => {
   const [server_error, setServerError] = useState({});
   const [server_data, setServerData] = useState([]);
   const navigate = useNavigate();
@@ -61,62 +61,13 @@ const AbsentViewSpecific = () => {
           id="login-form"
           onSubmit={handleSubmit}
         >
-          {/* <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            name="email"
-            label="Email"
-          />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="start_date"
-            name="start_date"
-            label="Start Date"
-          />
-
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="end_date"
-            name="end_date"
-            label="End Date"
-          />
-
-          <Box textAlign="center">
-            {isLoading ? (
-              <CircularProgress />
-            ) : (
-              <Button
-                type="submit"
-                variant="contained"
-                sx={{ mt: 3, mb: 2, px: 5 }}
-              >
-                Submit
-              </Button>
-            )} */}
-
-          {/* {server_error.error ? (
-              <Typography
-                style={{ fontSize: 12, color: "red", paddingLeft: 10 }}
-              >
-                {<div>You have an error!</div>}
-              </Typography>
-            ) : (
-              ""
-            )}
-          </Box> */}
           <div class="absent-specific-container">
             <header class="absent-specific-header">
               <div class="dashboard-button-absent-specific">
                 <button
                   className="dashboard-back-button-third-floor"
                   onClick={(e) => {
-                    navigate("/hosteladmindashboard");
+                    navigate("/messmanagerdashboard");
                   }}
                 >
                   Dashboard
@@ -182,7 +133,7 @@ const AbsentViewSpecific = () => {
           <button
             className="dashboard-back-button-third-floor"
             onClick={(e) => {
-              navigate("/hosteladmindashboard");
+              navigate("/messmanagerdashboard");
             }}
           >
             Dashboard
@@ -209,4 +160,4 @@ const AbsentViewSpecific = () => {
   );
 };
 
-export default AbsentViewSpecific;
+export default AbsentViewSpecificMess;

@@ -1,243 +1,239 @@
-import { Add } from '@mui/icons-material'
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { Add } from "@mui/icons-material";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { act } from "react-dom/test-utils";
 
 // Define a service using a base URL and expected endpoints
 export const userAuthApi = createApi({
-  reducerPath: 'userAuthApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:1337/api/user/' }),
+  reducerPath: "userAuthApi",
+  baseQuery: fetchBaseQuery({
+    baseUrl: "http://192.168.69.116:1337/api/user/",
+  }),
   endpoints: (builder) => ({
     registerSuperUser: builder.mutation({
       query: (user) => {
         return {
-          url: 'superadminregister/',
-          method: 'POST',
+          url: "superadminregister/",
+          method: "POST",
           body: user,
           headers: {
-            'Content-type': 'application/json',
-          }
-        }
-      }
+            "Content-type": "application/json",
+          },
+        };
+      },
     }), //superuser
     // login superuser
     loginSuperUser: builder.mutation({
       query: (user) => {
         return {
-          url: 'superadminlogin/',
-          method: 'POST',
+          url: "superadminlogin/",
+          method: "POST",
           body: user,
           headers: {
-            'Content-type': 'application/json',
-          }
-        }
-      }
+            "Content-type": "application/json",
+          },
+        };
+      },
     }),
 
     registerHostelAdmin: builder.mutation({
       query: (user) => {
         return {
-          url: 'hosteladminregister/',
-          method: 'POST',
+          url: "hosteladminregister/",
+          method: "POST",
           body: user,
           headers: {
-            'Content-type': 'application/json',
-          }
-        }
-      }
+            "Content-type": "application/json",
+          },
+        };
+      },
     }),
 
     loginHostelAdmin: builder.mutation({
       query: (user) => {
         return {
-          url: 'hosteladminlogin/',
-          method: 'POST',
+          url: "hosteladminlogin/",
+          method: "POST",
           body: user,
           headers: {
-            'Content-type': 'application/json',
-          }
-        }
-      }
+            "Content-type": "application/json",
+          },
+        };
+      },
     }),
-
 
     registerStudent: builder.mutation({
       query: (user) => {
         return {
-          url: 'studentregister/',
-          method: 'POST',
+          url: "studentregister/",
+          method: "POST",
           body: user,
           headers: {
-            'Content-type': 'application/json',
-          }
-        }
-      }
+            "Content-type": "application/json",
+          },
+        };
+      },
     }),
     loginStudent: builder.mutation({
       query: (user) => {
         return {
-          url: 'hosteladminlogin/',
-          method: 'POST',
+          url: "hosteladminlogin/",
+          method: "POST",
           body: user,
           headers: {
-            'Content-type': 'application/json',
-          }
-        }
-      }
+            "Content-type": "application/json",
+          },
+        };
+      },
     }),
 
     registerMessManager: builder.mutation({
       query: (user) => {
         return {
-          url: 'messmanagerregister/',
-          method: 'POST',
+          url: "messmanagerregister/",
+          method: "POST",
           body: user,
           headers: {
-            'Content-type': 'application/json',
-          }
-        }
-      }
+            "Content-type": "application/json",
+          },
+        };
+      },
     }),
     loginMessManager: builder.mutation({
       query: (user) => {
         return {
-          url: 'messmanagerlogin/',
-          method: 'POST',
+          url: "messmanagerlogin/",
+          method: "POST",
           body: user,
           headers: {
-            'Content-type': 'application/json',
-          }
-        }
-      }
+            "Content-type": "application/json",
+          },
+        };
+      },
     }),
 
     registerHostel: builder.mutation({
       query: (user) => {
         return {
-          url: 'hostelregister/',
-          method: 'POST',
+          url: "hostelregister/",
+          method: "POST",
           body: user,
           headers: {
-            'Content-type': 'application/json',
-          }
-        }
-      }
+            "Content-type": "application/json",
+          },
+        };
+      },
     }),
-
-
 
     getLoggedUser: builder.query({
       query: (access_token) => {
         return {
-          url: 'profile/',
-          method: 'GET',
+          url: "profile/",
+          method: "GET",
           headers: {
-            'authorization': `Bearer ${access_token}`,
-          }
-        }
-      }
+            authorization: `Bearer ${access_token}`,
+          },
+        };
+      },
     }),
     changeUserPassword: builder.mutation({
       query: ({ actualData, access_token }) => {
         return {
-          url: 'changepassword/',
-          method: 'POST',
+          url: "changepassword/",
+          method: "POST",
           body: actualData,
           headers: {
-            'authorization': `Bearer ${access_token}`,
-          }
-        }
-      }
+            authorization: `Bearer ${access_token}`,
+          },
+        };
+      },
     }),
     sendPasswordResetEmail: builder.mutation({
       query: (user) => {
         return {
-          url: 'sendresetpasswordemail/',
-          method: 'POST',
+          url: "sendresetpasswordemail/",
+          method: "POST",
           body: user,
           headers: {
-            'Content-type': 'application/json',
-          }
-        }
-      }
+            "Content-type": "application/json",
+          },
+        };
+      },
     }),
     resetPassword: builder.mutation({
       query: ({ actualData, id, token }) => {
         return {
           url: `/reset-password/${id}/${token}/`,
-          method: 'POST',
+          method: "POST",
           body: actualData,
           headers: {
-            'Content-type': 'application/json',
-          }
-        }
-      }
+            "Content-type": "application/json",
+          },
+        };
+      },
     }),
     createLeaveRequest: builder.mutation({
       query: ({ email, start_date, end_date, Address, ReasonForLeave }) => {
         return {
-          url: 'studentleavereq/',
-          method: 'POST',
+          url: "studentleavereq/",
+          method: "POST",
           body: JSON.stringify({
             email: email,
             start_date: start_date,
             end_date: end_date,
             Address: Address,
-            ReasonForLeave: ReasonForLeave
+            ReasonForLeave: ReasonForLeave,
           }),
           headers: {
-            'Content-type': 'application/json',
-          }
-
-        }
-      }
+            "Content-type": "application/json",
+          },
+        };
+      },
     }),
     updateHostelRoom: builder.mutation({
       query: ({ actualData, access_token }) => {
         return {
-          url: 'hosteladminroomallocation/',
-          method: 'POST',
+          url: "hosteladminroomallocation/",
+          method: "POST",
           body: JSON.stringify({
             email: actualData.email,
-            room: actualData.room
+            room: actualData.room,
           }),
           headers: {
-            'authorization': `Bearer ${access_token}`,
-            'Content-type': 'application/json',
-          }
-
-        }
-      }
+            // authorization: `Bearer ${access_token}`,
+            "Content-type": "application/json",
+          },
+        };
+      },
     }),
     uploadcsv: builder.mutation({
       query: ({ actualData, access_token }) => {
         return {
-          url: 'uploadcsv/',
-          method: 'POST',
+          url: "uploadcsv/",
+          method: "POST",
           body: JSON.stringify({
-            csv: actualData.csv
+            csv: actualData.csv,
           }),
           headers: {
             // 'authorization': `Bearer ${access_token}`,
-            'Content-type': 'application/json',
-          }
-
-        }
-      }
+            "Content-type": "application/json",
+          },
+        };
+      },
     }),
     markAbsent: builder.mutation({
-      query: ({ actualData, access_token }) => {
+      query: ({ email, access_token }) => {
         return {
-          url: 'createabsentrecord/',
-          method: 'POST',
+          url: "createabsentrecord/",
+          method: "POST",
           body: JSON.stringify({
-            email: actualData.email
+            email: email,
           }),
           headers: {
             // 'authorization': `Bearer ${access_token}`,
-            'Content-type': 'application/json',
-          }
-
-        }
-      }
+            "Content-type": "application/json",
+          },
+        };
+      },
     }),
 
     // left to implement in auth.js
@@ -245,104 +241,216 @@ export const userAuthApi = createApi({
     absentYesterday: builder.mutation({
       query: ({ actualData, access_token }) => {
         return {
-          url: 'createabsentrecord/',
-          method: 'POST',
-          body: JSON.stringify({
-            email: actualData.email
-          }),
+          url: "viewstudentspresentyesterday/",
+          method: "GET",
           headers: {
             // 'authorization': `Bearer ${access_token}`,
-            'Content-type': 'application/json',
-          }
-
-        }
-      }
+            "Content-type": "application/json",
+          },
+        };
+      },
+    }),
+    absentlistToday: builder.mutation({
+      query: ({ access_token }) => {
+        return {
+          url: "absenttoday/",
+          method: "GET",
+          headers: {
+            // authorization: `Bearer ${access_token}`,
+            "Content-type": "application/json",
+          },
+        };
+      },
     }),
     absentviewtotal: builder.mutation({
       query: ({ actualData, access_token }) => {
         return {
-          url: 'AbsentDaysView/',
-          method: 'POST',
+          url: "AbsentDaysView/",
+          method: "POST",
           body: JSON.stringify({
             start_date: actualData.start_date,
-            end_date: actualData.end_date
+            end_date: actualData.end_date,
           }),
           headers: {
-            // 'authorization': `Bearer ${access_token}`,
-            'Content-type': 'application/json',
-          }
-
-        }
-      }
+            // authorization: `Bearer ${access_token}`,
+            "Content-type": "application/json",
+          },
+        };
+      },
     }),
     absentviewspecific: builder.mutation({
       query: ({ actualData, access_token }) => {
         return {
-          url: 'AbsentDaysSpecificView/',
-          method: 'POST',
+          url: "AbsentDaysSpecificView/",
+          method: "POST",
           body: JSON.stringify({
             email: actualData.email,
             start_date: actualData.start_date,
-            end_date: actualData.end_date
+            end_date: actualData.end_date,
           }),
           headers: {
-            // 'authorization': `Bearer ${access_token}`,
-            'Content-type': 'application/json',
-          }
-
-        }
-      }
+            // authorization: `Bearer ${access_token}`,
+            "Content-type": "application/json",
+          },
+        };
+      },
     }),
     // yo ta replace garnu paryo get room from email sanga
     getemailfromroom: builder.mutation({
-      query: ({ actualData, access_token }) => {
+      query: ({ roomNumber, access_token }) => {
+        console.log("Hey ", roomNumber);
+        console.log("Hey1 ", access_token);
         return {
-          url: 'getemailfromroom/',
-          method: 'POST',
+          url: "getemailfromroom/",
+          method: "POST",
           body: JSON.stringify({
-            room_number: actualData.room_number,
+            room_number: roomNumber,
           }),
           headers: {
             // 'authorization': `Bearer ${access_token}`,
-            'Content-type': 'application/json',
-          }
-
-        }
-      }
+            "Content-type": "application/json",
+          },
+        };
+      },
     }),
 
     getroomdetails: builder.mutation({
       query: ({ actualData, access_token }) => {
         return {
-          url: 'getroomdetails/',
-          method: 'POST',
+          url: "getroomdetails/",
+          method: "POST",
           body: JSON.stringify({
-            room_number: actualData.room_number,
+            room_number: actualData,
           }),
           headers: {
             // 'authorization': `Bearer ${access_token}`,
-            'Content-type': 'application/json',
-          }
-
-        }
-      }
+            "Content-type": "application/json",
+          },
+        };
+      },
     }),
 
     getoccupiedrooms: builder.mutation({
       query: ({ access_token }) => {
         return {
-          url: 'occupiedRooms/',
-          method: 'GET',
+          url: "occupiedRooms/",
+          method: "GET",
           headers: {
             // 'authorization': `Bearer ${access_token}`,
-            'Content-type': 'application/json',
-          }
-
-        }
-      }
+            "Content-type": "application/json",
+          },
+        };
+      },
     }),
 
+    getleaverequestlist: builder.mutation({
+      query: ({ actualData, access_token }) => {
+        return {
+          url: "listleaverequests/",
+          method: "POST",
+          body: JSON.stringify({
+            start_date: actualData.start_date,
+            end_date: actualData.end_date,
+          }),
+          headers: {
+            // 'authorization': `Bearer ${access_token}`,
+            "Content-type": "application/json",
+          },
+        };
+      },
+    }),
+    getuserType: builder.mutation({
+      query: ({ access_token }) => {
+        console.log(access_token);
+        return {
+          url: "getusertype/",
+          method: "POST",
+          headers: {
+            authorization: `Bearer ${access_token}`,
+            "Content-type": "application/json",
+          },
+        };
+      },
+    }),
+    deleteAbsentRecord: builder.mutation({
+      query: ({ email, access_token }) => {
+        console.log(access_token);
+        return {
+          url: "deleteAbsentRecord/",
+          method: "POST",
+          body: JSON.stringify({
+            email: email,
+          }),
+          headers: {
+            authorization: `Bearer ${access_token}`,
+            "Content-type": "application/json",
+          },
+        };
+      },
+    }),
+    checkAbsentRecord: builder.mutation({
+      query: ({ email, access_token }) => {
+        console.log(access_token);
+        return {
+          url: "checkAbsentRecord/",
+          method: "POST",
+          body: JSON.stringify({
+            email: email,
+          }),
+          headers: {
+            authorization: `Bearer ${access_token}`,
+            "Content-type": "application/json",
+          },
+        };
+      },
+    }),
+    getAbsentCSV: builder.mutation({
+      query: ({ actualData, access_token }) => {
+        console.log(access_token);
+        return {
+          url: "getattendancecsv/",
+          method: "POST",
+          body: JSON.stringify({
+            start_date: actualData.start_date,
+            end_date: actualData.end_date,
+          }),
+          headers: {
+            // authorization: `Bearer ${access_token}`,
+            "Content-type": "application/json",
+          },
+          responseType: "blob",
+        };
+      },
+    }),
   }),
-})
+});
 
-export const { useAbsentYesterdayMutation, useAbsentviewtotalMutation, useAbsentviewspecificMutation, useGetemailfromroomMutation, useGetroomdetailsMutation, useGetoccupiedroomsMutation, useRegisterSuperUserMutation, useLoginSuperUserMutation, useGetLoggedUserQuery, useChangeUserPasswordMutation, useSendPasswordResetEmailMutation, useResetPasswordMutation, useRegisterHostelAdminMutation, useRegisterStudentMutation, useLoginHostelAdminMutation, useLoginStudentMutation, useCreateLeaveRequestMutation, useUpdateHostelRoomMutation, useUploadcsvMutation, useRegisterHostelMutation, useMarkAbsentMutation } = userAuthApi
+export const {
+  useAbsentYesterdayMutation,
+  useAbsentviewtotalMutation,
+  useAbsentviewspecificMutation,
+  useGetemailfromroomMutation,
+  useGetroomdetailsMutation,
+  useGetoccupiedroomsMutation,
+  useRegisterSuperUserMutation,
+  useLoginSuperUserMutation,
+  useGetLoggedUserQuery,
+  useChangeUserPasswordMutation,
+  useSendPasswordResetEmailMutation,
+  useResetPasswordMutation,
+  useRegisterHostelAdminMutation,
+  useRegisterStudentMutation,
+  useLoginHostelAdminMutation,
+  useLoginStudentMutation,
+  useCreateLeaveRequestMutation,
+  useUpdateHostelRoomMutation,
+  useUploadcsvMutation,
+  useRegisterHostelMutation,
+  useMarkAbsentMutation,
+  useAbsentlistTodayMutation,
+  useGetleaverequestlistMutation,
+  useGetuserTypeMutation,
+  useDeleteAbsentRecordMutation,
+  useCheckAbsentRecordMutation,
+  useGetAbsentCSVMutation,
+} = userAuthApi;

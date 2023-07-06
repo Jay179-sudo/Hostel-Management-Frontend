@@ -11,38 +11,37 @@ import { useDispatch } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 import { setUserToken } from "../../features/authSlice";
 import { getToken, storeToken } from "../../services/LocalStorageService";
-import { useAbsentviewspecificMutation } from "../../services/userAuthApi";
+import { useGetleaverequestlistMutation } from "../../services/userAuthApi";
 import { v4 as uuidv4 } from "uuid";
 import "../auth/staticfiles/absent-specific-style.css";
 import general_image from "../auth/mediafiles/absent-specific-image.jpg";
-const AbsentViewSpecific = () => {
+const GetLeaveRequestList = () => {
   const [server_error, setServerError] = useState({});
   const [server_data, setServerData] = useState([]);
   const navigate = useNavigate();
-  const [absentviewspecific, { isLoading }] = useAbsentviewspecificMutation();
+  const [getleaverequestlist, { isLoading }] = useGetleaverequestlistMutation();
   const dispatch = useDispatch();
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
     const actualData = {
-      email: data.get("email"),
       start_date: data.get("start_date"),
       end_date: data.get("end_date"),
     };
     // const ans = getToken();
-    const res = await absentviewspecific({ actualData, access_token });
+    const res = await getleaverequestlist({ actualData, access_token });
+    console.log(res);
+
     if (res.error) {
       setServerData([]);
       setServerError(res.error.data);
-    }
-
-    if (res.data.length !== 0) {
-      // console.log(typeof (res.data))
-      // console.log(res.data)
-      // TODO Change this
+    } else if (res.data.length !== 0) {
       setServerError({});
       setServerData(res.data);
+
+      //   navigate("/hosteladmindashboard");
     } else {
+      setServerError({});
       setServerData([""]);
     }
   };
@@ -62,54 +61,54 @@ const AbsentViewSpecific = () => {
           onSubmit={handleSubmit}
         >
           {/* <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            name="email"
-            label="Email"
-          />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="start_date"
-            name="start_date"
-            label="Start Date"
-          />
-
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="end_date"
-            name="end_date"
-            label="End Date"
-          />
-
-          <Box textAlign="center">
-            {isLoading ? (
-              <CircularProgress />
-            ) : (
-              <Button
-                type="submit"
-                variant="contained"
-                sx={{ mt: 3, mb: 2, px: 5 }}
-              >
-                Submit
-              </Button>
-            )} */}
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              name="email"
+              label="Email"
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="start_date"
+              name="start_date"
+              label="Start Date"
+            />
+  
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="end_date"
+              name="end_date"
+              label="End Date"
+            />
+  
+            <Box textAlign="center">
+              {isLoading ? (
+                <CircularProgress />
+              ) : (
+                <Button
+                  type="submit"
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2, px: 5 }}
+                >
+                  Submit
+                </Button>
+              )} */}
 
           {/* {server_error.error ? (
-              <Typography
-                style={{ fontSize: 12, color: "red", paddingLeft: 10 }}
-              >
-                {<div>You have an error!</div>}
-              </Typography>
-            ) : (
-              ""
-            )}
-          </Box> */}
+                <Typography
+                  style={{ fontSize: 12, color: "red", paddingLeft: 10 }}
+                >
+                  {<div>You have an error!</div>}
+                </Typography>
+              ) : (
+                ""
+              )}
+            </Box> */}
           <div class="absent-specific-container">
             <header class="absent-specific-header">
               <div class="dashboard-button-absent-specific">
@@ -130,10 +129,10 @@ const AbsentViewSpecific = () => {
                 class="absent-specific-img"
               />
               <div class="absent-specific-form">
-                <h2 class="absent-specific-h2">Absent Student Specific</h2>
+                <h2 class="absent-specific-h2">Leave Request List</h2>
                 <p class="absent-specific-instruction">
-                  Please fill out the following details to retrieve particular
-                  student details.
+                  Please fill out the following details to retrieve leave
+                  request list
                 </p>
                 <div class="absent-specific-form-group absent-specific-start-date">
                   <label for="start_date">Start Date</label>
@@ -155,17 +154,7 @@ const AbsentViewSpecific = () => {
                     required
                   />
                 </div>
-                <div class="absent-specific-form-group absent-specific-email">
-                  <label for="email">Email</label>
-                  <input
-                    type="text"
-                    id="email"
-                    name="email"
-                    class="absent-specific-form-control"
-                    placeholder="Enter Student email"
-                    required
-                  />
-                </div>
+
                 <div class="absent-specific-form-group">
                   <input
                     type="submit"
@@ -178,7 +167,7 @@ const AbsentViewSpecific = () => {
           </div>
         </Box>
       ) : (
-        <div>
+        <div className="leave-list-response-container">
           <button
             className="dashboard-back-button-third-floor"
             onClick={(e) => {
@@ -187,21 +176,36 @@ const AbsentViewSpecific = () => {
           >
             Dashboard
           </button>
-          <div className="absent-specific-response-container">
-            <h2 className="absent-specific-h2">Absent Specific Student</h2>
-            <div className="absent-specific-response-main">
-              <div className="absent-specific-response-head">
-                <p>Date Absent</p>
-              </div>
-
-              {server_data.map((item) => (
-                <div key={uuidv4()} className="absent-specific-grid">
-                  <div className="absent-specific-response-date">
-                    {item.dateAbsent}
-                  </div>
-                </div>
-              ))}
+          <h2 className="leave-list-h2">Leave Records</h2>
+          <div className="leave-list-head-grid">
+            <div className="leave-list-response-head">
+              <p>Start Date</p>
             </div>
+            <div className="leave-list-response-head">
+              <p>End Date</p>
+            </div>
+            <div className="leave-list-response-head">
+              <p>Email</p>
+            </div>
+            <div className="leave-list-response-head">
+              <p>Hostel Name</p>
+            </div>
+          </div>
+          <div className="leave-list-response-main">
+            {server_data.map((item) => (
+              <div key={uuidv4()} className="leave-list-grid">
+                <div className="leave-list-response-start">
+                  {item.start_date}
+                </div>
+                <div className="leave-list-response-end">{item.end_date}</div>
+                <div className="leave-list-response-email">
+                  {item.student__email}
+                </div>
+                <div className="leave-list-response-hostel">
+                  {item.hostel__name}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       )}
@@ -209,4 +213,4 @@ const AbsentViewSpecific = () => {
   );
 };
 
-export default AbsentViewSpecific;
+export default GetLeaveRequestList;

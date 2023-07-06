@@ -1,0 +1,68 @@
+/*
+SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+FONT SIZE SYSTEM (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.nav-link-body {
+  /* background-color: #f1f3f5; */
+  font-family: "Inter", sans-serif;
+  color: #343a40;
+  /* border-bottom: 8px solid #1864ab; */
+  /* border-top: 8px solid #087f5b; */
+}
+.nav-link-container {
+  width: 1100px;
+  margin: 0 auto;
+}
+.nav-link-main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 64px;
+  align-content: center;
+  justify-content: center;
+  padding: 96px 0;
+  /* padding-top: 64px; */
+}
+
+.nav-link-img {
+  width: 600px;
+  margin-top: 32px;
+}
+
+.nav-link-h2 {
+  font-size: 44px;
+  margin-bottom: 10px;
+}
+.nav-link-form {
+  align-self: center;
+}
+.nav-link-btn {
+  display: inline-block;
+  border: 1px solid transparent;
+  background-color: #6c63ff;
+  text-decoration: none;
+  /* border: none; */
+  border-radius: 6px;
+  color: #fff;
+  margin-top: 40px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 16px 30px;
+  width: 100%;
+  text-transform: uppercase;
+  transition: background-color 0.3s;
+}
+
+.nav-link-btn:hover {
+  background-color: #483dff;
+}

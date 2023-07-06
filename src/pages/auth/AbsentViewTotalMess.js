@@ -65,7 +65,7 @@ const AbsentViewTotalMess = () => {
                 <button
                   className="dashboard-back-button-third-floor"
                   onClick={(e) => {
-                    navigate("/hosteladmindashboard");
+                    navigate("/messmanagerdashboard");
                   }}
                 >
                   Dashboard
@@ -123,7 +123,7 @@ const AbsentViewTotalMess = () => {
               <button
                 className="dashboard-back-button-third-floor"
                 onClick={(e) => {
-                  navigate("/hosteladmindashboard");
+                  navigate("/messmanagerdashboard");
                 }}
               >
                 Dashboard
